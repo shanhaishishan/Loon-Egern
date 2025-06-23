@@ -1,0 +1,20 @@
+#!name=nb助手去广告
+#!desc=去广告，跳广告
+#!tag=去广告
+#!icon= https://raw.githubusercontent.com/snowyen0909/loon-/refs/heads/main/IMG_1782.png
+#!date = 2025-05-31 18:00:00
+
+[Rule]
+DOMAIN-KEYWORD,eos.huhehaote-8.cmecloud.cn,REJECT
+DOMAIN-SUFFIX,b.hon.cc.cdnhwc8.com,REJECT
+DOMAIN,images.pinduoduo.com,REJECT
+DOMAIN,media-sdqd-fy-person.sdoss.ctyunxs.cn,REJECT
+DOMAIN-KEYWORD,ad.adukwai.com,REJECT
+DOMAIN-KEYWORD,a.yximgs.com,REJECT
+DOMAIN,static.yximgs.com,REJECT
+DOMAIN-SUFFIX,djvod.ndcimgs.com,REJECT
+DOMAIN-KEYWORD,dsp.8ziben.com,REJECT
+DOMAIN-KEYWORD,lm.adukwai.com,REJECT
+DOMAIN,qh-material.taobao.com,REJECT
+DOMAIN,sdklog.zhangyuyidong.cn,REJECT
+DOMAIN,sdk.zhangyuyidong.cn,REJECT
