@@ -29,23 +29,16 @@ policy_groups:
 - external:
     name: 代理
     type: auto_test
-    urls:(代理连接添加处）
-    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Category_Globe.png
-    hidden: false
+    urls:
+    -
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+    hidden: true
 - select:
-    name: 直连
+    name: 保底
     policies:
     - DIRECT
     flatten: true
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png
-    hidden: false
-- auto_test:
-    name: 其优
-    policies:
-    - 代理
-    flatten: true
-    filter: (阿根廷|俄罗斯|韩国|英国|荷兰|德国|澳大利亚|加拿大|菲律宾|土耳其|阿联酋)
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Direct.png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     hidden: false
 - select:
     name: 手优
@@ -54,6 +47,21 @@ policy_groups:
     - 新优
     flatten: true
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Clubhouse.png
+    hidden: false
+- auto_test:
+    name: 延优
+    policies:
+    - 代理
+    flatten: true
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/UrlTest.png
+    hidden: false
+- auto_test:
+    name: 别优
+    policies:
+    - 代理
+    flatten: true
+    filter: (阿根廷|俄罗斯|韩国|英国|荷兰|德国|澳大利亚|加拿大|菲律宾|土耳其|阿联酋)
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Blinkload.png
     hidden: false
 - auto_test:
     name: 新优
@@ -98,7 +106,7 @@ policy_groups:
 rules:
 - domain_keyword:
     match: ip-api
-    policy: 其优
+    policy: 别优
     disabled: false
 - domain_keyword:
     match: aecc
@@ -174,7 +182,7 @@ rules:
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/BiliBili/BiliBili.list
-    policy: 直连
+    policy: 保底
     disabled: false
 - rule_set:
     match: https://kelee.one/Tool/Loon/Rule/TikTok.list
@@ -202,57 +210,57 @@ rules:
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple.list
-    policy: 直连
+    policy: 保底
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple_Domain.list
-    policy: 直连
+    policy: 保底
     disabled: false
 - domain:
     match: ifconfig.me
-    policy: 直连
+    policy: 保底
     disabled: false
 - domain_suffix:
     match: cn
-    policy: 直连
+    policy: 保底
     disabled: false
 - geoip:
     match: CN
-    policy: 直连
+    policy: 保底
     no_resolve: false
     disabled: false
 - ip_cidr:
     match: 192.168.0.0/16
-    policy: 直连
+    policy: 保底
     no_resolve: false
     disabled: false
 - ip_cidr:
     match: 10.0.0.0/8
-    policy: 直连
+    policy: 保底
     no_resolve: false
     disabled: false
 - ip_cidr:
     match: 127.0.0.0/8
-    policy: 直连
+    policy: 保底
     no_resolve: false
     disabled: false
 - ip_cidr:
     match: 172.16.0.0/12
-    policy: 直连
+    policy: 保底
     no_resolve: false
     disabled: false
 - ip_cidr:
     match: 192.128.0.0/16
-    policy: 直连
+    policy: 保底
     no_resolve: false
     disabled: false
 - ip_cidr:
     match: 224.0.0.0/24
-    policy: 直连
+    policy: 保底
     no_resolve: false
     disabled: false
 - default:
-    policy: 直连
+    policy: 保底
 scriptings:
 - schedule:
     name: 油价信息
