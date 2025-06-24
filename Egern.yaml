@@ -30,7 +30,7 @@ policy_groups:
     name: 代理
     type: auto_test
     urls:
-    -
+    - 你的订阅地址
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     hidden: true
 - select:
