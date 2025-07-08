@@ -1,5 +1,5 @@
 name: 哔哩哔哩去广告
-description: 过滤哔哩哔哩广告、移除青少年模式弹窗和交互式弹幕、移除无用功能和链接跟踪参数。此模块仅建议iOS 15以上设备使用。
+description: 麻吉修改白哔自用版
 compat_arguments:
   动态最常访问: auto
   创作中心: '0'
@@ -83,7 +83,7 @@ scriptings:
 - http_response:
     name: bilibili.json
     match: ^https:\/\/app\.bilibili\.com\/x\/(?:resource\/show\/tab\/v2|v2\/(?:splash\/(?:list|show|event\/list2)|feed\/index(?:\/story)?|account\/(?:mine(?:\/ipad)?|myinfo)))\?
-    script_url: https://raw.githubusercontent.com/mist-whisper/Script/master/BiliBili/BiliBili.json.js
+    script_url: https://raw.githubusercontent.com/shanhaishishan/Script/refs/heads/master/BiliBili/BiliBili.json.js
 - http_response:
     name: Proto处理
     match: ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?:app\.(?:interface\.v1\.(?:Teenagers\/ModeStatus|Search\/DefaultWords)|show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(?:unite)?\.v1\.View\/(?:View|ViewProgress|TFInfo|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$
