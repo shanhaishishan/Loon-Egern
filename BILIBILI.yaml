@@ -71,8 +71,8 @@ map_locals:
 scriptings:
 - http_request:
     name: bilibili.airborne
-    match: ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.playerunite\.v1\.Player\/PlayViewUnite$
-    script_url: https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.airborne.js
+    match: ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$
+    script_url: https://kelee.one/Resource/Script/Bilibili/Bilibili_airborne_kokoryh.js
     body_required: true
     binary_body: true
 - http_response:
