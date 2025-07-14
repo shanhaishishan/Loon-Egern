@@ -47,9 +47,12 @@ http-response-jq ^https:\/\/api\.live\.bilibili\.com\/xlive\/(app-interface\/v2\
 
 # 移除搜索框关键词
 ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ mock-response-body data-type=base64 data-is-base64=true
+
 # 移除播放页面广告
 ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo$ data-type=base64 data="AAAAAAIIAQ=="
 
+# 精简我的页面
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(?:\/ipad)?\? response-body-json-jq jq-path="https://raw.githubusercontent.com/mist-whisper/JQLang/master/Bilibili/mine_Bilibili_remove_ads.jq"
 [Script]
 # ProtoBuf处理
 [Script]
