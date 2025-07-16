@@ -71,8 +71,8 @@ map_locals:
 scriptings:
 - http_request:
     name: bilibili.airborne
-    match: ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.playerunite\.v1\.Player\/PlayViewUnite$
-    script_url: https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.airborne.js
+    match: ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$
+    script_url: https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.airborne.js
     body_required: true
     binary_body: true
 - http_response:
@@ -89,10 +89,10 @@ scriptings:
     body_required: true
 - http_response:
     name: Proto处理
-    match: ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?:app\.(?:interface\.v1\.(?:Teenagers\/ModeStatus|Search\/DefaultWords)|show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(?:unite)?\.v1\.View\/(?:View|ViewProgress|TFInfo|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$
-    script_url: https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.js
+    match: ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile)|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$
+    script_url: https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.js
     arguments:
-      _compat.$argument: '{"showUpList":"auto","filterTopReplies":1}'
+      _compat.$argument: '{"showUpList":"auto","filterTopReplies":1,"airborne":"bilibili.airborne","logLevel":"off"}'
     body_required: true
     binary_body: true
 mitm:
@@ -102,3 +102,4 @@ mitm:
     - app.bilibili.com
     - api.bilibili.com
     - api.live.bilibili.com
+    - line3-h5-mobile-api.biligame.com
