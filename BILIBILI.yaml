@@ -83,7 +83,7 @@ scriptings:
 - http_response:
     name: bilibili.json
     match: ^https:\/\/app\.bilibili\.com\/x\/(?:resource\/show\/tab\/v2|v2\/(?:splash\/(?:list|show|event\/list2)|feed\/index(?:\/story)?|account\/(?:mine(?:\/ipad)?|myinfo)))\?
-    script_url: https://raw.githubusercontent.com/shanhaishishan/Script/refs/heads/master/BiliBili/BiliBili.json.js
+    script_url: https://raw.githubusercontent.com/shanhaishishan/Loon-Egern/refs/heads/main/bili.json.js
     arguments:
       _compat.$argument: '{"showUperCenter":0}'
     body_required: true
