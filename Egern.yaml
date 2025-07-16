@@ -1,12 +1,13 @@
 ipv6: false
+allow_external_connections: false
 vif_only: true
-hide_vpn_icon: true
+hide_vpn_icon: false
 hijack_dns:
 - '*:53'
 geoip_db_url: https://geodata.kelee.one/Country-Masaiki.mmdb
 asn_db_url: https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
 proxy_latency_test_url: http://www.gstatic.com/generate_204
-direct_latency_test_url: http://connectivitycheck.platform.hicloud.com/generate_204
+direct_latency_test_url: https://connectivitycheck.platform.hicloud.com/generate_204
 compat_route: false
 dns:
   bootstrap:
@@ -26,11 +27,80 @@ dns:
     - iosapps.itunes.apple.com.download.ks-cdn.com
   public_ip_lookup_url: https://ifconfig.me/ip
 policy_groups:
+- select:
+    name: 国内直连
+    policies:
+    - DIRECT
+    flatten: false
+    hidden: true
+- select:
+    name: GitHub
+    policies:
+    - 延优
+    flatten: false
+    hidden: true
+- select:
+    name: 哔哩哔哩
+    policies:
+    - DIRECT
+    flatten: false
+    hidden: true
+- select:
+    name: 虎牙直播
+    policies:
+    - DIRECT
+    flatten: false
+    hidden: true
+- select:
+    name: 外抖
+    policies:
+    - 台优
+    flatten: false
+    hidden: true
+- select:
+    name: 人工智障
+    policies:
+    - 手优
+    flatten: false
+    hidden: true
+- select:
+    name: 谷歌网络
+    policies:
+    - 日优
+    flatten: false
+    hidden: true
+- select:
+    name: 电报消息
+    policies:
+    - 台优
+    flatten: false
+    hidden: true
+- select:
+    name: 推特消息
+    policies:
+    - 俄优
+    flatten: false
+    hidden: true
+- select:
+    name: 抖音
+    policies:
+    - DIRECT
+    flatten: false
+    hidden: true
+- select:
+    name: 小红书
+    policies:
+    - DIRECT
+    flatten: false
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/chxm1023/xiaohongshu.png
+    hidden: true
 - external:
     name: 代理
     type: auto_test
     urls:
-    - 你的订阅地址
+    - 你的订阅链接
+    - 你的订阅链接
+    - 你的订阅链接
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
     hidden: true
 - select:
@@ -103,7 +173,31 @@ policy_groups:
     filter: (?i)🇭🇰|香港|(\b(HK|Hong)\b)
     icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Hongkong(2).png
     hidden: false
+- auto_test:
+    name: 俄优
+    policies:
+    - 代理
+    flatten: true
+    filter: (?i)🇷🇺|俄罗斯|俄国|俄|Россия|Русский|РФ|(\b(RU|RUS|Russia|Russian)\b)
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png
+    hidden: false
 rules:
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/HuYa/HuYa.list
+    policy: 虎牙直播
+    disabled: false
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/DouYin/DouYin.list
+    policy: 抖音
+    disabled: false
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/XiaoHongShu/XiaoHongShu.list
+    policy: 小红书
+    disabled: false
+- domain:
+    match: graph.facebook.com
+    policy: 延优
+    disabled: false
 - domain_keyword:
     match: ip-api
     policy: 别优
@@ -117,12 +211,12 @@ rules:
     policy: REJECT
     disabled: false
 - rule_set:
-    match: https://rule.kelee.one/Loon/Gemini.list
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Gemini/Gemini.list
     policy: 手优
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list
-    policy: 美优
+    policy: GitHub
     disabled: false
 - domain_keyword:
     match: hk.hkuk.xyz
@@ -182,31 +276,35 @@ rules:
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/BiliBili/BiliBili.list
-    policy: 保底
+    policy: 哔哩哔哩
     disabled: false
 - rule_set:
-    match: https://kelee.one/Tool/Loon/Rule/TikTok.list
-    policy: 台优
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/TikTok/TikTok.list
+    policy: 外抖
     disabled: false
 - rule_set:
-    match: https://kelee.one/Tool/Loon/Rule/AI.list
-    policy: 手优
+    match: https://raw.githubusercontent.com/mist-whisper/Surge/refs/heads/master/Rules/AI/AI.list
+    policy: 人工智障
     disabled: false
 - rule_set:
-    match: https://rule.kelee.one/Loon/Google.list
-    policy: 手优
+    match: https://raw.githubusercontent.com/mist-whisper/Surge/refs/heads/master/Rules/Google/Google.list
+    policy: 谷歌网络
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Telegram/Telegram.list
-    policy: 手优
+    policy: 电报消息
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Twitter/Twitter.list
-    policy: 台优
+    policy: 推特消息
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list
-    policy: 美优
+    policy: 谷歌网络
+    disabled: false
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/ChinaMax/ChinaMax.list
+    policy: 国内直连
     disabled: false
 - rule_set:
     match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple.list
@@ -218,10 +316,6 @@ rules:
     disabled: false
 - domain:
     match: ifconfig.me
-    policy: 保底
-    disabled: false
-- domain_suffix:
-    match: cn
     policy: 保底
     disabled: false
 - geoip:
@@ -260,7 +354,7 @@ rules:
     no_resolve: false
     disabled: false
 - default:
-    policy: 保底
+    policy: 延优
 scriptings:
 - schedule:
     name: 油价信息
@@ -292,9 +386,10 @@ scriptings:
     name: 途虎养车
     cron: 15 0 * * *
     script_url: https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/tuhu.js
+    disabled: true
 mitm:
   enabled: true
-  ca_p12: 
+  ca_p12:
   ca_passphrase: 
 modules:
 - name: 墨鱼去开屏
@@ -303,14 +398,20 @@ modules:
 - name: 拦截HTTPDNS
   url: https://raw.githubusercontent.com/mist-whisper/Egern/refs/heads/master/Module/Block_HTTPDNS.yaml
   enabled: false
+- name: 拦截HTTPDNS
+  url: https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Beta/HTTPDNS拦截器.beta.sgmodule
+  enabled: true
+- name: 广告平台拦截器
+  url: https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Beta/广告平台拦截器.beta.sgmodule
+  enabled: true
 - name: 广告拦截平台
   url: https://raw.githubusercontent.com/mist-whisper/Egern/refs/heads/master/Module/BlockAdvertisers.yaml
-  enabled: true
+  enabled: false
 - name: 可莉广告过滤器
-  url: https://raw.githubusercontent.com/mist-whisper/Surge/master/Modules/Remove_ads_by_keli.sgmodule
+  url: https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Beta/可莉广告过滤器.beta.sgmodule
   enabled: true
 - name: 彩云天气去广告
-  url: https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Beta/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94%E5%8E%BB%E5%B9%BF%E5%91%8A.beta.sgmodule
+  url: https://raw.githubusercontent.com/mist-whisper/Surge/refs/heads/master/Modules/ColorfulClouds.sgmodule
   enabled: true
 - name: 🍅
   url: https://raw.githubusercontent.com/Jard1n/VPN_Tool/refs/heads/main/Surge/Module/FanQieNovel.sgmodule
@@ -321,9 +422,17 @@ modules:
 - name: 🍟bilibili精简
   url: https://github.com/BiliUniverse/Enhanced/releases/latest/download/BiliBili.Enhanced.yaml
   enabled: false
+- name: 阿哔阿哔
+  url: https://raw.githubusercontent.com/shanhaishishan/Loon-Egern/refs/heads/main/BILIBILI.yaml
+  enabled: false
+- name: 哔哩哔哩
+  url: https://raw.githubusercontent.com/shanhaishishan/Loon-Egern/refs/heads/main/bilibili.module
+  enabled: true
 - name: 哔哩哔哩
   url: https://raw.githubusercontent.com/mist-whisper/Egern/refs/heads/master/Module/BiliBili_remove_ads.yaml
-  enabled: true
+  compat_arguments:
+    动态最常访问: 'false'
+  enabled: false
 - name: NB助手去广告
   url: NB助手去广告
   enabled: true
@@ -337,7 +446,7 @@ modules:
   url: https://raw.githubusercontent.com/8wfield/memorandum/refs/heads/main/Egern/Module/MissAv.yaml
   enabled: true
 - name: 淘宝去广告
-  url: https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/淘宝去广告.sgmodule
+  url: https://raw.githubusercontent.com/mist-whisper/Surge/refs/heads/master/Modules/Taobao_remove_ads.sgmodule
   enabled: true
 - name: boxjs
   url: https://github.com/chavyleung/scripts/raw/master/box/rewrite/boxjs.rewrite.surge.sgmodule
@@ -379,7 +488,7 @@ modules:
   url: https://raw.githubusercontent.com/sooyaaabo/Egern/refs/heads/main/Module/IQIYI.module
   enabled: true
 - name: 高德地图
-  url: https://raw.githubusercontent.com/mist-whisper/Egern/refs/heads/master/Module/Amap_remove_ads.yaml
+  url: https://raw.githubusercontent.com/mist-whisper/Surge/refs/heads/master/Modules/Amap_remove_ads.sgmodule
   enabled: true
 - url: https://github.com/Repcz/Tool/raw/X/Egern/Module/YouTube.yaml
   enabled: true
@@ -389,22 +498,19 @@ modules:
 - name: Script-Hub
   url: https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%E2%AD%90%EF%B8%8F%20Script%20Hub.official.sgmodule
   enabled: true
-- name: 网络信息
-  url: https://raw.githubusercontent.com/mist-whisper/Surge/master/Modules/Panel_NetISP_X.sgmodule
+- name: 节假日信息
+  url: https://raw.githubusercontent.com/mist-whisper/Egern/refs/heads/master/Module/Panel_TimeCard.yaml
   enabled: true
 - name: ai检测
   url: https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/GPT%20%E5%8F%AF%E7%94%A8%E6%A3%80%E6%B5%8B-%E6%97%A0%20WARP.official.sgmodule
-  enabled: true
-- name: 当前汇率
-  url: https://raw.githubusercontent.com/mist-whisper/Surge/master/Modules/Panel_Rates.sgmodule
   enabled: true
 - name: 实时油价
   url: https://raw.githubusercontent.com/Break0-hub/Egern/refs/heads/main/Module/%E5%AE%9E%E6%97%B6%E6%B2%B9%E4%BB%B7%E9%9D%A2%E6%9D%BF.sgmodule
   compat_arguments:
     YJDQ: zhejiang/hangzhou
   enabled: true
-- name: 节假日信息
-  url: https://raw.githubusercontent.com/mist-whisper/Egern/refs/heads/master/Module/Panel_TimeCard.yaml
+- name: 当前汇率
+  url: https://raw.githubusercontent.com/mist-whisper/Surge/master/Modules/Panel_Rates.sgmodule
   enabled: true
 - name: 途虎签到
   url: https://raw.githubusercontent.com/shanhaishishan/Egern/refs/heads/master/Module/ces
