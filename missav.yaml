@@ -14,7 +14,7 @@ scriptings:
 - http_response:
     name: MissAV去广告
     match: ^https:\/\/missav\.(?:ai|ws)\/(?!(build|fonts|img|js|api|cdn-cgi)\/).
-    script_url: https://raw.githubusercontent.com/ifflagged/Darwin/main/Modules/JS/kokoryh/missav/missav.js
+    script_url: https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/webpage.missav.js
     body_required: true
 mitm:
   hostnames:
