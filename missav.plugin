@@ -6,7 +6,7 @@
 #!icon = https://raw.githubusercontent.com/bemarkt/Scripts/master/provider/Loon/Resources/Icons/app/javdb.png
 #!tag = 去广告
 #!loon_version = 3.2.1(749)
-#!date = 2025-03-18 14:22
+#!date = 2025-08-11 14:22
 
 [Rule]
 DOMAIN-SUFFIX,creative.myavlive.com,REJECT
@@ -14,7 +14,7 @@ DOMAIN-SUFFIX,trackwilltrk.com,REJECT
 DOMAIN-SUFFIX,tsyndicate.com,REJECT
 
 [Script]
-http-response ^https:\/\/missav\.(?:ai|ws)\/(?!(build|fonts|img|js|api|cdn-cgi)\/). script-path=https://raw.githubusercontent.com/ifflagged/Darwin/main/Modules/JS/kokoryh/missav/missav.js,requires-body=true, tag = MissAV去广告
+http-response ^https:\/\/missav\.(?:ai|ws)\/(?!(build|fonts|img|js|api|cdn-cgi)\/). script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/webpage.missav.js,requires-body=true, tag = MissAV去广告
 
 [MITM]
 hostname = missav.ai, missav.ws
