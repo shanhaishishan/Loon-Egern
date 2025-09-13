@@ -9,7 +9,7 @@
 #!date=2025-09
 
 [Argument]
-showUpList = select, "auto", "true", "false", tag = [动态]中[最常访问]的显示方式, desc = auto: 仅当列表中存在直播状态时显示; true: 始终显示; false: 始终隐藏;
+showUpList=select, "auto", "show", "hide", tag=[动态]中[最常访问]的显示方式, desc=auto：仅当列表中存在直播状态时显示；show：始终显示；hide：始终隐藏;
 purifyTopReplies = switch, true, false, tag = [评论区]过滤置顶评论广告, desc = true: 开启; false: 关闭;
 purifyWebpage = switch, true, false, tag = [直播间]净化内嵌网页广告, desc = true: 开启; false: 关闭;
 airborne = switch, true, false, tag = [空降助手]跳过视频内插播广告, desc = true: 开启; false: 关闭;
