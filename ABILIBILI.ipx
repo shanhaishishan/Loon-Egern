@@ -1,4 +1,4 @@
-name: BiliBili去广告
+#name: BiliBili去广告
 description: 麻吉自用修改版 26.8.16
 compat_arguments:
 
@@ -156,7 +156,7 @@ scriptings:
 - http_request:
     name: 空降助手
     match: ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$
-    script_url: https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_proto_request_kokoryh.js
+    script_url: https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.request.js
     env:
       _compat.$argument: '{"logLevel":"off"}'
     timeout: 10
@@ -166,7 +166,7 @@ scriptings:
 - http_request:
     name: 请求处理
     match: ^https:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?:app\.viewunite\.v1\.View\/View|main\.community\.reply\.v1\.Reply\/MainList)$
-    script_url: https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_proto_request_kokoryh.js
+    script_url: https://raw.githubusercontent.com/kokoryh/Script/master/js/bili-suit-diy.js
     env:
       _compat.$argument: '{"purifyComment":true,"logLevel":"off"}'
     timeout: 10
@@ -175,7 +175,7 @@ scriptings:
 - http_response:
     name: ProtoBuf处理
     match: ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed|AIRelateAsync)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$
-    script_url: https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_proto_response_kokoryh.js
+    script_url: https://raw.githubusercontent.com/kokoryh/Sparkle/master/dist/bilibili.protobuf.response.js
     env:
       _compat.$argument: '{"displayUpList":"show","purifyComment":true,"sponsorBlock":false,"logLevel":"off"}'
     body_required: true
