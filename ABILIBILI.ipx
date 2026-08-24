@@ -1,5 +1,5 @@
-name: 哔哩哔哩
-description: 过滤哔哩哔哩广告
+name: ABILIBILI
+description: 麻吉Egrn自用版26.8.25
 compat_arguments:
   displayUpList: auto
   purifyComment: 'true'
